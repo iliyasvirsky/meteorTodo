@@ -1,0 +1,46 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List ({{incompleteCount}})</h1>
+      
+      <!-- {{>meteorErrors}} -->
+
+      
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+      {{> loginButtons}}
+
+      {{#if currentUser}}
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+          <select type="number" name="number">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>        
+          </select>
+          <input type="date" name="date" />
+          
+          <button > sumbit </button>
+        </form>
+      {{/if}}
+    </header>
+    <div>
+      Sort By:
+      <select class="sort" name="sort">
+        <option hidden value="default">Select An Option</option>
+        <option value="name">name</option>
+        <option value="date">date</option>
+        <option value="number">priority</option>        
+      </select>
+    </div>
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
